@@ -1,0 +1,6 @@
+<%@ page import = "java.io.*,java.util.*" %>
+<%
+// Getting session creation time.
+Date createTime=new Date(session.getCreationTime());
+
+//Getting last access time of this webpage

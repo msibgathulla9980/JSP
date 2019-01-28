@@ -1,0 +1,33 @@
+<%
+//Creating the cookies for first and last name
+Cookie firstName=new Cookie("firstName",request.getParameter("first_name"));
+Cookie lastName=new Cookie("lastName",request.getParameter("last_name"));
+
+//Setting expiry date after 24 Hrs for both the cookies.
+firstName.setMaxAge(60*60*24);
+lastName.setMaxAge(60*60*24);
+
+//Adding both the cookies into the response header
+
+response.addCookie( firstName );
+response.addCookie( lastName );
+%>
+<html>
+   <head>
+      <title>Setting Cookies</title>
+   </head>
+   
+   <body>
+      <center>
+         <h1>Setting Cookies</h1>
+      </center>
+      <ul>
+      <li>
+      <p><b> First Name</b>
+      <%= request.getParameter("lastName") %>
+      </p></li>
+      
+      
+      
+      
+      

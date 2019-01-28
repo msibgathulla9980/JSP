@@ -1,0 +1,13 @@
+<html>
+   <head>
+      <title>Reading Cookies</title>
+   </head>
+   
+   <body>
+      <center>
+         <h1>Reading Cookies</h1>
+      </center>
+      <%
+      Cookie cookie=null;
+      Cookie[] cookies=null;
+      //Getting an array of cookies associated with this domain

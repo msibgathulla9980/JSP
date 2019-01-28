@@ -1,0 +1,67 @@
+
+<%
+//Creating the cookies for first and last name
+Cookie firstName=new Cookie("firstName",request.getParameter("first_name"));
+Cookie lastName=new Cookie("lastName",request.getParameter("last_name"));
+
+//Setting expiry date after 24 Hrs for both the cookies.
+firstName.setMaxAge(60*60*24);
+lastName.setMaxAge(60*60*24);
+
+//Adding both the cookies into the response header
+
+response.addCookie( firstName );
+response.addCookie( lastName );
+%>
+<html>
+<head>
+<title>Setting Cookies</title>
+</head>
+
+<body>
+	<center>
+		<h1>Setting Cookies</h1>
+	</center>
+	<ul>
+		<li><p>
+				<b>First Name:</b>
+				<%= request.getParameter("first_name")%>
+			</p></li>
+		<li><p>
+				<b>Last Name:</b>
+				<%= request.getParameter("last_name")%>
+			</p></li>
+	</ul>
+      body>
+      <center>
+         <h1>Reading Cookies</h1>
+      </center>
+      <%
+      Cookie cookie=null;
+      Cookie[] cookies=null;
+      //Getting an array of cookies associated with this domain
+      cookies=request.getCookies();
+      if(cookies!=null)
+      {
+    	  out.print("<h2>Found Cookie's Name and Value</h2>");
+  for(int i=0;i<cookies.length;i++)
+  {
+	  cookie=cookies[i];
+	  
+      if((cookie.getName( )).compareTo("first_name") == 0 ) {
+         cookie.setMaxAge(0);
+         response.addCookie(cookie);
+         out.print("Deleted cookie: " +cookie.getName( ) + "<br/>");
+      }
+	  out.print("Name:  "+cookie.getName()+", ");
+	  out.print("Value:  "+cookie.getValue()+"<br/>");
+  }
+      }
+      else
+    	  out.print("<h2> No Cookeis Found</h2>");
+ %>
+ 
+</body>	
+</html>
+
+
